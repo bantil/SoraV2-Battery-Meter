@@ -1,0 +1,15 @@
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\bin\Debug\net8.0-windows\SoraBatteryStatus.exe
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\bin\Debug\net8.0-windows\SoraBatteryStatus.deps.json
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\bin\Debug\net8.0-windows\SoraBatteryStatus.runtimeconfig.json
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\bin\Debug\net8.0-windows\SoraBatteryStatus.dll
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\bin\Debug\net8.0-windows\SoraBatteryStatus.pdb
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\SoraBatteryStatus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\SoraBatteryStatus.AssemblyInfoInputs.cache
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\SoraBatteryStatus.AssemblyInfo.cs
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\SoraBatteryStatus.csproj.CoreCompileInputs.cache
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\SoraBatteryStatus.dll
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\refint\SoraBatteryStatus.dll
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\SoraBatteryStatus.pdb
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\SoraBatteryStatus.genruntimeconfig.cache
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\obj\Debug\net8.0-windows\ref\SoraBatteryStatus.dll
+C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\bin\Debug\net8.0-windows\assets\smoothie.ico
