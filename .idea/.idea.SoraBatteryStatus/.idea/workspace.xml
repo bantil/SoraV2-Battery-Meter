@@ -8,39 +8,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8a08b65-3f8d-4a63-979e-8c5144a47e6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/SoraBatteryStatus.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/SoraBatteryStatus.csproj.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.deps.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.runtimeconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.genruntimeconfig.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/ref/SoraBatteryStatus.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/refint/SoraBatteryStatus.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SoraBatteryStatus/DTO/BatteryStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SoraBatteryStatus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SoraBatteryStatus/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/SoraBatteryStatus.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/SoraBatteryStatus.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.runtimeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.GlobalUsings.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/ref/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/ref/SoraBatteryStatus.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/refint/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/refint/SoraBatteryStatus.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/SoraBatteryStatus.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +52,15 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/winforms/b0051e354c0e48009444fb4907a6ce61ac497910/src/System.Windows.Forms/src/System/Windows/Forms/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/winforms/b0051e354c0e48009444fb4907a6ce61ac497910/src/System.Windows.Forms/src/System/Windows/Forms/Form.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/winforms/b0051e354c0e48009444fb4907a6ce61ac497910/src/System.Windows.Forms/src/System/Windows/Forms/NotifyIcon.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/winforms/b0051e354c0e48009444fb4907a6ce61ac497910/src/System.Windows.Forms/src/System/Windows/Forms/NotifyIcon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ccb80ad413ff4bfeb8879b0e86b8b8909e00/0e/44bf0c58/HidDevice.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ccb80ad413ff4bfeb8879b0e86b8b8909e00/40/fd8e4903/HidDevices.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ccb80ad413ff4bfeb8879b0e86b8b8909e00/d7/e6d0f2e0/HidReport.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2jNZqxyuBxr579U1j2c6euNKM2Y" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -72,7 +71,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.SoraBatteryStatus.executor": "Run",
+    ".NET Project.SoraBatteryStatus.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
@@ -80,7 +79,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "WinFormsDesignerOptionsPage",
+    "settings.editor.selected.configurable": "ReSharper",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -120,6 +119,10 @@
       <option name="presentableId" value="Default" />
       <updated>1721229690371</updated>
       <workItem from="1721229691520" duration="3515000" />
+      <workItem from="1721264972976" duration="3543000" />
+      <workItem from="1721347748879" duration="1851000" />
+      <workItem from="1721398327806" duration="1273000" />
+      <workItem from="1721400152784" duration="7603000" />
     </task>
     <servers />
   </component>
@@ -129,5 +132,46 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.cs</url>
+          <line>42</line>
+          <properties documentPath="C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\BatteryStatusTray.cs" containingFunctionPresentation="Method 'GetSpecificDevice'">
+            <startOffsets>
+              <option value="1186" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1250" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.cs</url>
+          <line>86</line>
+          <properties documentPath="C:\Users\s0litaire\RiderProjects\SoraBatteryStatus\SoraBatteryStatus\BatteryStatusTray.cs" containingFunctionPresentation="Method 'PollForMouseStats'">
+            <startOffsets>
+              <option value="2440" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2454" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#HidLibrary.HidDeviceCapabilities" memberName="OutputReportByteLength" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

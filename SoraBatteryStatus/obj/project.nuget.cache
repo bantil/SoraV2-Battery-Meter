@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ENrGzdrGrAMlllEv0B0gWjvfOMsIl6J8oHzflyECRq6vHixg7PLpw1Ilw4QxnESn3RjYh6fkWbXA7V9gcQMHSA==",
+  "dgSpecHash": "E11ltr32+nMI+wxeMbCgK5kj4/WrMbmbfGW6c8/4YXpOoeb0z5AcE6pHycEsKIpWwyeaKjFqk4sPX8xl9X/PnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\s0litaire\\RiderProjects\\SoraBatteryStatus\\SoraBatteryStatus\\SoraBatteryStatus.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\s0litaire\\.nuget\\packages\\hidlibrary\\3.3.40\\hidlibrary.3.3.40.nupkg.sha512"
+  ],
   "logs": []
 }
