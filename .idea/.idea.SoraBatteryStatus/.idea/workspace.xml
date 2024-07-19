@@ -10,21 +10,6 @@
     <list default="true" id="e8a08b65-3f8d-4a63-979e-8c5144a47e6e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SoraBatteryStatus/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SoraBatteryStatus/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/BatteryStatusTray.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/SoraBatteryStatus.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/SoraBatteryStatus.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/assets/smoothie.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/bin/Debug/net8.0-windows/SoraBatteryStatus.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/SoraBatteryStatus.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/ref/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/ref/SoraBatteryStatus.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/refint/SoraBatteryStatus.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/Debug/net8.0-windows/refint/SoraBatteryStatus.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SoraBatteryStatus/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SoraBatteryStatus/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +100,7 @@
       <workItem from="1721264972976" duration="3543000" />
       <workItem from="1721347748879" duration="1851000" />
       <workItem from="1721398327806" duration="1273000" />
-      <workItem from="1721400152784" duration="14423000" />
+      <workItem from="1721400152784" duration="14480000" />
     </task>
     <servers />
   </component>

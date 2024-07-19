@@ -16,9 +16,10 @@ public partial class BatteryStatusTray : Form
     // seconds for polling interval
     private const int PollingInterval = 60;
     
+    // other components
     private NotifyIcon _batteryStatus = null!;
     private Container _component = null!;
-    private ContextMenuStrip contextMenuStrip;
+    private ContextMenuStrip _contextMenuStrip = null!;
 
     public BatteryStatusTray()
     {
@@ -72,23 +73,23 @@ public partial class BatteryStatusTray : Form
         _batteryStatus.Visible = true;
         
         // create context menu strip
-        contextMenuStrip = new ContextMenuStrip();
+        _contextMenuStrip = new ContextMenuStrip();
         
         // label for the app name
         ToolStripLabel appNameLabel = new ToolStripLabel("Sora V2 Battery Meter 1.0");
         appNameLabel.ForeColor = Color.Gray; // Gray color for disabled appearance
         appNameLabel.Enabled = false; // Disable to make it non-clickable
-        contextMenuStrip.Items.Add(appNameLabel);
+        _contextMenuStrip.Items.Add(appNameLabel);
 
         // quit menu item
         ToolStripMenuItem quitMenuItem = new ToolStripMenuItem("Quit");
         quitMenuItem.Click += QuitMenuItem_Click!;
         
         // separator to separate
-        contextMenuStrip.Items.Add(new ToolStripSeparator());
-        contextMenuStrip.Items.Add(quitMenuItem);
+        _contextMenuStrip.Items.Add(new ToolStripSeparator());
+        _contextMenuStrip.Items.Add(quitMenuItem);
         
-        _batteryStatus.ContextMenuStrip = contextMenuStrip;
+        _batteryStatus.ContextMenuStrip = _contextMenuStrip;
     }
     
     private void QuitMenuItem_Click(object sender, EventArgs e)
