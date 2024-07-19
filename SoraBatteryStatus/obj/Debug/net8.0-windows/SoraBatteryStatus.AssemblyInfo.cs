@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoraBatteryStatus")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+728a81b43aa5fbabbd79d871d11e6e240c9b861e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+141337b84935a75c6e4c8a5f5ab3e10310e6cac6")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoraBatteryStatus")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoraBatteryStatus")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

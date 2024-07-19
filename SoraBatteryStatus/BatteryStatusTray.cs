@@ -6,41 +6,49 @@ namespace SoraBatteryStatus;
 
 public partial class BatteryStatusTray : Form
 {
-    // consts for Sora V2 IDs
     // make this configurable, for now they are hard coded
-    private const ushort soraVid = 0x1915;
-    private const ushort soraPidWireless = 0xAE1C;
-    private const ushort soraPidWired = 0xAE11;
-    private const ushort soraUsagePage = 0xFFA0;
-    
-    // shows the form display
-    private const bool ShowFormDisplay = false;
+    private const string DeviceName = "Sora V2";
+    private const ushort SoraVid = 0x1915;
+    private const ushort SoraPidWireless = 0xAE1C;
+    private const ushort SoraPidWired = 0xAE11;
+    private const ushort SoraUsagePage = 0xFFA0;
     
     // seconds for polling interval
-    private const int PollingInterval = 5;
+    private const int PollingInterval = 60;
     
-    private NotifyIcon _batteryStatus;
-    private Container _component;
+    private NotifyIcon _batteryStatus = null!;
+    private Container _component = null!;
+    private ContextMenuStrip contextMenuStrip;
 
     public BatteryStatusTray()
     {
         InitializeComponent();
         
-        // don't show main window for now when program runs
-        base.SetVisibleCore(ShowFormDisplay);
-        
         SetUpBatteryIcon();
-        var device = GetSpecificDevice();
-        PollForMouseStats(device);
+        
+        _ = PollForMouseStats();
+    }
+
+    /// <summary>
+    /// Hides the main window on startup.
+    /// </summary>
+    /// <param name="value"></param>
+    protected override void SetVisibleCore(bool value)
+    {
+        if (!IsHandleCreated) {
+            value = false;
+            CreateHandle();
+        }
+        base.SetVisibleCore(value);
     }
     
     /// <summary>
-    /// Retrieves a specific device, in thise case, our sora mouse.
+    /// Retrieves a specific device, in this case, our sora mouse.
     /// </summary>
     /// <returns></returns>
     private static HidDevice? GetSpecificDevice()
     {
-        var hidDevices = HidDevices.Enumerate(soraVid, soraPidWireless);
+        var hidDevices = HidDevices.Enumerate(SoraVid, [SoraPidWireless, SoraPidWired]);
 
         foreach (var device in hidDevices)
         {
@@ -48,7 +56,7 @@ public partial class BatteryStatusTray : Form
             var hexValue = usagePage.ToString("X");
             var hexUsagePage = Convert.ToInt32(hexValue, 16);
             
-            if (hexUsagePage == soraUsagePage)
+            if (hexUsagePage == SoraUsagePage)
             {
                 return device;
             }
@@ -60,46 +68,165 @@ public partial class BatteryStatusTray : Form
     private void SetUpBatteryIcon()
     {
         _component = new Container();
-        
         _batteryStatus = new NotifyIcon(_component);
-
-        _batteryStatus.Icon = new Icon("assets/smoothie.ico");
-
         _batteryStatus.Visible = true;
+        
+        // create context menu strip
+        contextMenuStrip = new ContextMenuStrip();
+        
+        // label for the app name
+        ToolStripLabel appNameLabel = new ToolStripLabel("Sora V2 Battery Meter 1.0");
+        appNameLabel.ForeColor = Color.Gray; // Gray color for disabled appearance
+        appNameLabel.Enabled = false; // Disable to make it non-clickable
+        contextMenuStrip.Items.Add(appNameLabel);
+
+        // quit menu item
+        ToolStripMenuItem quitMenuItem = new ToolStripMenuItem("Quit");
+        quitMenuItem.Click += QuitMenuItem_Click!;
+        
+        // separator to separate
+        contextMenuStrip.Items.Add(new ToolStripSeparator());
+        contextMenuStrip.Items.Add(quitMenuItem);
+        
+        _batteryStatus.ContextMenuStrip = contextMenuStrip;
+    }
+    
+    private void QuitMenuItem_Click(object sender, EventArgs e)
+    {
+        // Close the application
+        Application.Exit();
     }
 
-    private async Task PollForMouseStats(HidDevice? device)
+    private void UpdateBatteryIcon(BatteryStatus batteryStatus)
+    {
+        // bitmap for icon
+        var width = 34;
+        var height = 48;
+        var batteryBitmap = new Bitmap(width, height);
+
+        var color = GetBatteryColor(batteryStatus);
+
+        using (var graphics = Graphics.FromImage(batteryBitmap))
+        {
+            // Clear the bitmap with a transparent background
+            graphics.Clear(Color.Transparent);
+
+            if (batteryStatus.CurrentBatteryLevel == -1)
+            {
+                _batteryStatus.Icon = new Icon("assets/x-icon.ico");
+                return;
+            }
+        
+            // draw the battery outline
+            var batteryOutline = new Rectangle(2, 2, width - 4, height - 4);
+            var batteryOutlinePen = new Pen(Color.Black, 2);
+            graphics.DrawRectangle(batteryOutlinePen, batteryOutline);
+
+            // draw the battery level
+            var batteryLevelHeight = (int)((height - 4) * (batteryStatus.CurrentBatteryLevel / 100.0));
+            var batteryLevelRect = new Rectangle(3, height - 3 - batteryLevelHeight, width - 6, batteryLevelHeight);
+            var batteryLevelBrush = new SolidBrush(color);
+            graphics.FillRectangle(batteryLevelBrush, batteryLevelRect);
+        }
+
+        // set the icon and text
+        _batteryStatus.Icon = Icon.FromHandle(batteryBitmap.GetHicon());
+        _batteryStatus.Text = $"{DeviceName}: {batteryStatus.CurrentBatteryLevel}%";
+    }
+
+    /// <summary>
+    /// Returns the color for the battery meter.
+    /// </summary>
+    /// <param name="batteryStatus"></param>
+    /// <returns></returns>
+    private Color GetBatteryColor(BatteryStatus batteryStatus)
+    {
+        // show battery indicator as blue when charging
+        if (batteryStatus.ChargingState == 1)
+        {
+            // go dodgers!!!
+            return Color.DodgerBlue;
+        }
+        
+        switch (batteryStatus.CurrentBatteryLevel)
+        {
+            case <= 100 and > 40:
+                return Color.ForestGreen;
+            case <= 39 and > 20:
+                return Color.Yellow;
+            case <= 19 and > 1:
+                return Color.Red;
+            default:
+                return Color.Transparent;
+        }
+    }
+
+    /// <summary>
+    /// Polls the device every 60 seconds to get a battery level.
+    /// </summary>
+    /// <param name="device"></param>
+    private async Task PollForMouseStats()
     {
         // polling time
         var timer = new PeriodicTimer(TimeSpan.FromSeconds(PollingInterval));
         
-        while (await timer.WaitForNextTickAsync())
+        do
         {
-            device?.OpenDevice();
+            var device = GetSpecificDevice();
             
-            byte[] report = new byte[32];
-            
-            var response = new byte[device.Capabilities.OutputReportByteLength];
-            
-            // needed bytes to send to the report
-            report[0] = 5;
-            report[1] = 21;
-            report[4] = 1;
-            
-            // Read the response
-            if (device.WriteFeatureData(report))
+            if (device == null)
             {
-                device.ReadFeatureData(out response, report[0]);
+                var batteryStatusDto = new BatteryStatus()
+                {
+                    CurrentBatteryLevel = -1
+                };
+                
+                UpdateBatteryIcon(batteryStatusDto);
             }
-            
-            // get the specific values that contain our values for battery and info
-            var batteryStatusDto = new BatteryStatus()
+            else
             {
-                CurrentBatteryLevel = response[9],
-                ChargingState = response[10],
-                FullyChargedState = response[11],
-                OnlineState = response[12],
-            };
+                GetMouseStats(device);
+            }
+        } while (await timer.WaitForNextTickAsync());
+    }
+
+    /// <summary>
+    /// This is specific to the Sora V2 configuration
+    /// May want to update this to a factory or something for other models.
+    /// </summary>
+    /// <param name="device"></param>
+    private void GetMouseStats(HidDevice? device)
+    {
+        device?.OpenDevice();
+            
+        byte[] report = new byte[32];
+            
+        var response = new byte[device.Capabilities.OutputReportByteLength];
+            
+        // needed bytes to send to the feature report
+        report[0] = 5; // report id
+        report[1] = 21;
+        report[4] = 1;
+            
+        // read the feature report response, takes an output var and report id.
+        if (device.WriteFeatureData(report))
+        {
+            device.ReadFeatureData(out response, report[0]);
         }
+            
+        // get the specific values that contain our values for battery and info
+        var batteryStatusDto = new BatteryStatus()
+        {
+            CurrentBatteryLevel = response[9],
+            ChargingState = response[10],
+            FullyChargedState = response[11],
+            OnlineState = response[12],
+        };
+            
+        // Initialize the battery icon with a full level (for example)
+        UpdateBatteryIcon(batteryStatusDto);
+            
+        // close the device after we've gotten what we need
+        device.CloseDevice();
     }
 }
