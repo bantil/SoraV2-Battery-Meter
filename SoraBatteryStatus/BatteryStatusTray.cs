@@ -90,8 +90,8 @@ public partial class BatteryStatusTray : Form
         
         // separator to separate
         _contextMenuStrip.Items.Add(new ToolStripSeparator());
-        _contextMenuStrip.Items.Add(quitMenuItem);
         _contextMenuStrip.Items.Add(refreshMenuItem);
+        _contextMenuStrip.Items.Add(quitMenuItem);
         
         _batteryStatus.ContextMenuStrip = _contextMenuStrip;
     }
