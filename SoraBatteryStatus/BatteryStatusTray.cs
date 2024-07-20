@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using HidLibrary;
 using SoraBatteryStatus.DTO;
+using ToolStripMenuItem = System.Windows.Forms.ToolStripMenuItem;
 
 namespace SoraBatteryStatus;
 
@@ -81,20 +82,33 @@ public partial class BatteryStatusTray : Form
         appNameLabel.Enabled = false; // Disable to make it non-clickable
         _contextMenuStrip.Items.Add(appNameLabel);
 
-        // quit menu item
+        // menu items
         ToolStripMenuItem quitMenuItem = new ToolStripMenuItem("Quit");
+        ToolStripMenuItem refreshMenuItem = new ToolStripMenuItem("Refresh");
         quitMenuItem.Click += QuitMenuItem_Click!;
+        refreshMenuItem.Click += RefreshMenuItem_Click!;
         
         // separator to separate
         _contextMenuStrip.Items.Add(new ToolStripSeparator());
         _contextMenuStrip.Items.Add(quitMenuItem);
+        _contextMenuStrip.Items.Add(refreshMenuItem);
         
         _batteryStatus.ContextMenuStrip = _contextMenuStrip;
     }
     
+    /// <summary>
+    /// Refreshes the battery meter when refresh is clicked.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    /// <exception cref="NotImplementedException"></exception>
+    private void RefreshMenuItem_Click(object? sender, EventArgs e)
+    {
+        GetMouseStats(GetSpecificDevice());
+    }
+
     private void QuitMenuItem_Click(object sender, EventArgs e)
     {
-        // Close the application
         Application.Exit();
     }
 
