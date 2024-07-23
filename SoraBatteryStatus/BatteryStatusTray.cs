@@ -212,6 +212,8 @@ public partial class BatteryStatusTray : Form
     /// This is specific to the Sora V2 configuration
     /// May want to update this to a factory or something for other models.
     /// feature report data was checked using free usb analyzer
+    ///
+    /// TODO move this into its own factory-style class so we can use different mouse instances and not just one hardcoded model
     /// </summary>
     /// <param name="device"></param>
     private void GetMouseStats(HidDevice? device)
@@ -234,7 +236,7 @@ public partial class BatteryStatusTray : Form
         }
             
         // get the specific values that contain our values for battery and info
-        var batteryStatusDto = new BatteryStatus()
+        var batteryStatusDto = new BatteryStatus
         {
             CurrentBatteryLevel = response[9],
             ChargingState = response[10],
