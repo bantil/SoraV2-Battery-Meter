@@ -7,13 +7,6 @@ namespace SoraBatteryStatus;
 
 public partial class BatteryStatusTray : Form
 {
-    // make this configurable, for now they are hard coded
-    private const string DeviceName = "Sora V2";
-    private const ushort SoraVid = 0x1915;
-    private const ushort SoraPidWireless = 0xAE1C;
-    private const ushort SoraPidWired = 0xAE11;
-    private const ushort SoraUsagePage = 0xFFA0;
-    
     // seconds for polling interval
     private const int PollingInterval = 60;
     
@@ -21,9 +14,13 @@ public partial class BatteryStatusTray : Form
     private NotifyIcon _batteryStatus = null!;
     private Container _component = null!;
     private ContextMenuStrip _contextMenuStrip = null!;
-
-    public BatteryStatusTray()
+    private static MouseConfiguration _mouseConfig = null!;
+    
+    public BatteryStatusTray(MouseConfiguration mouseConfig)
     {
+        // get our mouse configuration from our appsettings.json
+        _mouseConfig = mouseConfig;
+        
         InitializeComponent();
         
         SetUpBatteryIcon();
@@ -50,7 +47,7 @@ public partial class BatteryStatusTray : Form
     /// <returns></returns>
     private static HidDevice? GetSpecificDevice()
     {
-        var hidDevices = HidDevices.Enumerate(SoraVid, [SoraPidWireless, SoraPidWired]);
+        var hidDevices = HidDevices.Enumerate(_mouseConfig.DeviceVid, [_mouseConfig.DevicePidWireless, _mouseConfig.DevicePidWired]);
 
         foreach (var device in hidDevices)
         {
@@ -58,7 +55,7 @@ public partial class BatteryStatusTray : Form
             var hexValue = usagePage.ToString("X");
             var hexUsagePage = Convert.ToInt32(hexValue, 16);
             
-            if (hexUsagePage == SoraUsagePage)
+            if (hexUsagePage == _mouseConfig.DeviceUsagePage)
             {
                 return device;
             }
@@ -77,16 +74,16 @@ public partial class BatteryStatusTray : Form
         _contextMenuStrip = new ContextMenuStrip();
         
         // label for the app name
-        ToolStripLabel appNameLabel = new ToolStripLabel("Sora V2 Battery Meter 1.0");
-        appNameLabel.ForeColor = Color.Gray; // Gray color for disabled appearance
-        appNameLabel.Enabled = false; // Disable to make it non-clickable
+        var appNameLabel = new ToolStripLabel("Sora V2 Battery Meter 1.0");
+        appNameLabel.ForeColor = Color.Gray;
+        appNameLabel.Enabled = false;
         _contextMenuStrip.Items.Add(appNameLabel);
 
         // menu items
-        ToolStripMenuItem quitMenuItem = new ToolStripMenuItem("Quit");
-        ToolStripMenuItem refreshMenuItem = new ToolStripMenuItem("Refresh");
+        var quitMenuItem = new ToolStripMenuItem("Quit");
+        var refreshMenuItem = new ToolStripMenuItem("Refresh");
         quitMenuItem.Click += QuitMenuItem_Click!;
-        refreshMenuItem.Click += RefreshMenuItem_Click!;
+        refreshMenuItem.Click += RefreshMenuItem_Click;
         
         // separator to separate
         _contextMenuStrip.Items.Add(new ToolStripSeparator());
@@ -101,7 +98,6 @@ public partial class BatteryStatusTray : Form
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    /// <exception cref="NotImplementedException"></exception>
     private void RefreshMenuItem_Click(object? sender, EventArgs e)
     {
         GetMouseStats(GetSpecificDevice());
@@ -115,8 +111,8 @@ public partial class BatteryStatusTray : Form
     private void UpdateBatteryIcon(BatteryStatus batteryStatus)
     {
         // bitmap for icon
-        var width = 34;
-        var height = 48;
+        const int width = 34;
+        const int height = 48;
         var batteryBitmap = new Bitmap(width, height);
 
         var color = GetBatteryColor(batteryStatus);
@@ -128,7 +124,15 @@ public partial class BatteryStatusTray : Form
 
             if (batteryStatus.CurrentBatteryLevel == -1)
             {
-                _batteryStatus.Icon = new Icon("assets/x-icon.ico");
+                _batteryStatus.Icon = new Icon("assets/dc-icon.ico");
+                _batteryStatus.Text = $"{_mouseConfig.DeviceName}: Device Not Found";
+                return;
+            }
+
+            if (batteryStatus.FullyChargedState == 1)
+            {
+                _batteryStatus.Icon = new Icon("assets/check-icon.ico");
+                _batteryStatus.Text = $"{_mouseConfig.DeviceName}: Fully Charged";
                 return;
             }
         
@@ -146,7 +150,7 @@ public partial class BatteryStatusTray : Form
 
         // set the icon and text
         _batteryStatus.Icon = Icon.FromHandle(batteryBitmap.GetHicon());
-        _batteryStatus.Text = $"{DeviceName}: {batteryStatus.CurrentBatteryLevel}%";
+        _batteryStatus.Text = $"{_mouseConfig.DeviceName}: {batteryStatus.CurrentBatteryLevel}%";
     }
 
     /// <summary>
@@ -154,7 +158,7 @@ public partial class BatteryStatusTray : Form
     /// </summary>
     /// <param name="batteryStatus"></param>
     /// <returns></returns>
-    private Color GetBatteryColor(BatteryStatus batteryStatus)
+    private static Color GetBatteryColor(BatteryStatus batteryStatus)
     {
         // show battery indicator as blue when charging
         if (batteryStatus.ChargingState == 1)
@@ -165,11 +169,11 @@ public partial class BatteryStatusTray : Form
         
         switch (batteryStatus.CurrentBatteryLevel)
         {
-            case <= 100 and > 40:
+            case <= 100 and > 41:
                 return Color.ForestGreen;
-            case <= 39 and > 20:
+            case <= 40 and > 21:
                 return Color.Yellow;
-            case <= 19 and > 1:
+            case <= 20 and > 1:
                 return Color.Red;
             default:
                 return Color.Transparent;
@@ -179,7 +183,6 @@ public partial class BatteryStatusTray : Form
     /// <summary>
     /// Polls the device every 60 seconds to get a battery level.
     /// </summary>
-    /// <param name="device"></param>
     private async Task PollForMouseStats()
     {
         // polling time
@@ -208,15 +211,16 @@ public partial class BatteryStatusTray : Form
     /// <summary>
     /// This is specific to the Sora V2 configuration
     /// May want to update this to a factory or something for other models.
+    /// feature report data was checked using free usb analyzer
     /// </summary>
     /// <param name="device"></param>
     private void GetMouseStats(HidDevice? device)
     {
         device?.OpenDevice();
             
-        byte[] report = new byte[32];
+        var report = new byte[32];
             
-        var response = new byte[device.Capabilities.OutputReportByteLength];
+        var response = new byte[device!.Capabilities.OutputReportByteLength];
             
         // needed bytes to send to the feature report
         report[0] = 5; // report id
